@@ -100,65 +100,85 @@ Whether you're new to meditation or a seasoned practitioner, this experience is 
           <div className="lg:col-span-2 space-y-8">
             {/* Event Header */}
             <div>
-              <h1 className="font-syne font-bold text-4xl md:text-5xl text-foreground mb-4">
+              <h1 className="font-display font-bold text-4xl md:text-5xl text-light-foreground dark:text-dark-foreground mb-4">
                 {event.title}
               </h1>
               
               <div className="flex items-center space-x-4 mb-6">
                 <div className="flex items-center space-x-1">
                   <Star className="w-5 h-5 text-yellow-400 fill-current" />
-                  <span className="font-inter font-semibold text-foreground">{event.rating}</span>
-                  <span className="font-inter text-foreground/70">({event.reviews} reviews)</span>
+                  <span className="font-sans font-semibold text-light-foreground dark:text-dark-foreground">{event.rating}</span>
+                  <span className="font-sans text-light-foreground/70 dark:text-dark-foreground/70">({event.reviews} reviews)</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <button
                     onClick={() => setIsLiked(!isLiked)}
                     className={`flex items-center space-x-1 transition-colors ${
-                      isLiked ? 'text-red-400' : 'text-foreground/70 hover:text-red-400'
+                      isLiked ? 'text-red-400' : 'text-light-foreground/70 dark:text-dark-foreground/70 hover:text-red-400'
                     }`}
                   >
                     <Heart className={`w-5 h-5 ${isLiked ? 'fill-current' : ''}`} />
-                    <span className="font-inter text-sm">248</span>
+                    <span className="font-sans text-sm">248</span>
                   </button>
                 </div>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-                <div className="flex items-center space-x-3 text-foreground/70">
+                <div className="flex items-center space-x-3 text-light-foreground/70 dark:text-dark-foreground/70">
                   <Calendar className="w-5 h-5" />
-                  <span className="font-inter">{event.date}</span>
+                  <span className="font-sans">{event.date}</span>
                 </div>
-                <div className="flex items-center space-x-3 text-foreground/70">
+                <div className="flex items-center space-x-3 text-light-foreground/70 dark:text-dark-foreground/70">
                   <Clock className="w-5 h-5" />
-                  <span className="font-inter">{event.time}</span>
+                  <span className="font-sans">{event.time}</span>
                 </div>
-                <div className="flex items-center space-x-3 text-foreground/70">
+                <div className="flex items-center space-x-3 text-light-foreground/70 dark:text-dark-foreground/70">
                   <MapPin className="w-5 h-5" />
-                  <span className="font-inter">{event.location}</span>
+                  <span className="font-sans">{event.location}</span>
                 </div>
-                <div className="flex items-center space-x-3 text-foreground/70">
+                <div className="flex items-center space-x-3 text-light-foreground/70 dark:text-dark-foreground/70">
                   <Users className="w-5 h-5" />
-                  <span className="font-inter">{event.attendees} / {event.capacity} attending</span>
+                  <span className="font-sans">{event.attendees} / {event.capacity} attending</span>
                 </div>
               </div>
             </div>
 
             {/* Description */}
-            <div className="prose prose-invert max-w-none">
-              <h2 className="font-syne font-semibold text-2xl text-foreground mb-4">About This Event</h2>
-              <div className="font-inter text-foreground/70 leading-relaxed whitespace-pre-line">
-                {event.description}
+            <div className="max-w-none">
+              <h2 className="font-display font-semibold text-2xl text-light-foreground dark:text-dark-foreground mb-6">About This Event</h2>
+              <div className="bg-light-muted/30 dark:bg-dark-muted/30 border-l-4 border-light-secondary dark:border-dark-secondary p-6 mb-6">
+                <div className="font-sans text-light-foreground/80 dark:text-dark-foreground/80 leading-relaxed whitespace-pre-line text-lg">
+                  {event.description}
+                </div>
+              </div>
+              
+              {/* Enhanced description styling */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div className="bg-light-card dark:bg-dark-card border-2 border-light-border dark:border-dark-border p-4 shadow-soft">
+                  <h4 className="font-display font-semibold text-light-foreground dark:text-dark-foreground mb-2">Duration</h4>
+                  <p className="font-sans text-light-foreground/70 dark:text-dark-foreground/70">2 hours of mindful practice</p>
+                </div>
+                <div className="bg-light-card dark:bg-dark-card border-2 border-light-border dark:border-dark-border p-4 shadow-soft">
+                  <h4 className="font-display font-semibold text-light-foreground dark:text-dark-foreground mb-2">Experience Level</h4>
+                  <p className="font-sans text-light-foreground/70 dark:text-dark-foreground/70">All levels welcome</p>
+                </div>
+              </div>
+              
+              <div className="bg-light-secondary/5 dark:bg-dark-secondary/5 border border-light-secondary/20 dark:border-dark-secondary/20 p-4 mb-6">
+                <p className="font-sans text-light-foreground/80 dark:text-dark-foreground/80 italic">
+                  "Join us for a transformative morning that will leave you feeling centered, energized, and connected to both yourself and our beautiful community."
+                </p>
               </div>
             </div>
 
             {/* Highlights */}
             <div>
-              <h2 className="font-syne font-semibold text-2xl text-foreground mb-4">What You'll Experience</h2>
+              <h2 className="font-display font-semibold text-2xl text-light-foreground dark:text-dark-foreground mb-4">What You'll Experience</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {event.highlights.map((highlight, index) => (
                   <div key={index} className="flex items-start space-x-3">
-                    <div className="w-2 h-2 bg-gradient-primary rounded-full mt-2 flex-shrink-0"></div>
-                    <span className="font-inter text-foreground/70">{highlight}</span>
+                    <div className="w-2 h-2 bg-light-secondary dark:bg-dark-secondary rounded-full mt-2 flex-shrink-0"></div>
+                    <span className="font-sans text-light-foreground/70 dark:text-dark-foreground/70">{highlight}</span>
                   </div>
                 ))}
               </div>
@@ -166,14 +186,14 @@ Whether you're new to meditation or a seasoned practitioner, this experience is 
 
             {/* Schedule */}
             <div>
-              <h2 className="font-syne font-semibold text-2xl text-foreground mb-4">Schedule</h2>
+              <h2 className="font-display font-semibold text-2xl text-light-foreground dark:text-dark-foreground mb-4">Schedule</h2>
               <div className="space-y-4">
                 {event.schedule.map((item, index) => (
-                  <div key={index} className="flex items-center space-x-4 p-4 bg-white/5 rounded-xl border border-white/10">
-                    <div className="font-inter font-semibold text-cyan min-w-20">
+                  <div key={index} className="flex items-center space-x-4 p-4 bg-light-muted/30 dark:bg-dark-muted/30 border-2 border-light-border dark:border-dark-border">
+                    <div className="font-sans font-semibold text-light-secondary dark:text-dark-secondary min-w-20">
                       {item.time}
                     </div>
-                    <div className="font-inter text-foreground/70">
+                    <div className="font-sans text-light-foreground/70 dark:text-dark-foreground/70">
                       {item.activity}
                     </div>
                   </div>
@@ -183,12 +203,12 @@ Whether you're new to meditation or a seasoned practitioner, this experience is 
 
             {/* What to Bring */}
             <div>
-              <h2 className="font-syne font-semibold text-2xl text-foreground mb-4">What to Bring</h2>
+              <h2 className="font-display font-semibold text-2xl text-light-foreground dark:text-dark-foreground mb-4">What to Bring</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 {event.whatToBring.map((item, index) => (
                   <div key={index} className="flex items-center space-x-3">
-                    <div className="w-2 h-2 bg-gradient-primary rounded-full flex-shrink-0"></div>
-                    <span className="font-inter text-foreground/70">{item}</span>
+                    <div className="w-2 h-2 bg-light-secondary dark:bg-dark-secondary rounded-full flex-shrink-0"></div>
+                    <span className="font-sans text-light-foreground/70 dark:text-dark-foreground/70">{item}</span>
                   </div>
                 ))}
               </div>
@@ -198,12 +218,12 @@ Whether you're new to meditation or a seasoned practitioner, this experience is 
           {/* Sidebar */}
           <div className="space-y-6">
             {/* Ticket Card */}
-            <div className="bg-white/10 backdrop-blur-glass rounded-2xl border border-white/20 p-6 sticky top-24">
+            <div className="bg-light-card dark:bg-dark-card border-2 border-light-border dark:border-dark-border p-6 relative shadow-soft">
               <div className="text-center mb-6">
-                <div className="font-syne font-bold text-3xl text-foreground mb-2">
+                <div className="font-display font-bold text-3xl text-light-foreground dark:text-dark-foreground mb-2">
                   {event.price}
                 </div>
-                <p className="font-inter text-foreground/70 text-sm">
+                <p className="font-sans text-light-foreground/70 dark:text-dark-foreground/70 text-sm">
                   Registration required
                 </p>
               </div>
@@ -211,23 +231,23 @@ Whether you're new to meditation or a seasoned practitioner, this experience is 
               <div className="space-y-4 mb-6">
                 <Link
                   to={`/tickets/${event.id}`}
-                  className="w-full py-4 bg-gradient-primary text-background font-inter font-semibold rounded-xl hover:scale-105 transition-all duration-300 text-center block"
+                  className="w-full py-4 bg-light-secondary dark:bg-dark-secondary text-white font-sans font-semibold hover:opacity-90 transition-all duration-300 text-center block"
                 >
                   Register Now
                 </Link>
-                <button className="w-full py-3 bg-white/10 backdrop-blur-glass border border-white/20 text-foreground font-inter font-medium rounded-xl hover:bg-white/20 transition-all duration-300">
+                <button className="w-full py-3 bg-light-card dark:bg-dark-card border-2 border-light-border dark:border-dark-border text-light-foreground dark:text-dark-foreground font-sans font-medium hover:bg-light-muted dark:hover:bg-dark-muted transition-all duration-300">
                   Add to Calendar
                 </button>
               </div>
 
-              <div className="text-center text-foreground/50 font-inter text-xs">
+              <div className="text-center text-light-foreground/50 dark:text-dark-foreground/50 font-sans text-xs">
                 Free cancellation up to 2 hours before event
               </div>
             </div>
 
             {/* Organizer Card */}
-            <div className="bg-white/10 backdrop-blur-glass rounded-2xl border border-white/20 p-6">
-              <h3 className="font-syne font-semibold text-xl text-foreground mb-4">
+            <div className="bg-light-card dark:bg-dark-card border-2 border-light-border dark:border-dark-border p-6 shadow-soft">
+              <h3 className="font-display font-semibold text-xl text-light-foreground dark:text-dark-foreground mb-4">
                 Event Organizer
               </h3>
               
@@ -239,42 +259,42 @@ Whether you're new to meditation or a seasoned practitioner, this experience is 
                 />
                 <div>
                   <div className="flex items-center space-x-2">
-                    <h4 className="font-inter font-semibold text-foreground">
+                    <h4 className="font-sans font-semibold text-light-foreground dark:text-dark-foreground">
                       {event.organizer.name}
                     </h4>
                     {event.organizer.verified && (
-                      <div className="w-4 h-4 bg-gradient-primary rounded-full flex items-center justify-center">
-                        <div className="w-2 h-2 bg-background rounded-full"></div>
+                      <div className="w-4 h-4 bg-light-secondary dark:bg-dark-secondary rounded-full flex items-center justify-center">
+                        <div className="w-2 h-2 bg-white rounded-full"></div>
                       </div>
                     )}
                   </div>
-                  <p className="font-inter text-sm text-foreground/70">
+                  <p className="font-sans text-sm text-light-foreground/70 dark:text-dark-foreground/70">
                     {event.organizer.followers} followers
                   </p>
                 </div>
               </div>
               
-              <button className="w-full py-3 bg-white/10 backdrop-blur-glass border border-white/20 text-foreground font-inter font-medium rounded-xl hover:bg-white/20 transition-all duration-300">
+              <button className="w-full py-3 bg-light-card dark:bg-dark-card border-2 border-light-border dark:border-dark-border text-light-foreground dark:text-dark-foreground font-sans font-medium hover:bg-light-muted dark:hover:bg-dark-muted transition-all duration-300">
                 Follow Organizer
               </button>
             </div>
 
             {/* Location Card */}
-            <div className="bg-white/10 backdrop-blur-glass rounded-2xl border border-white/20 p-6">
-              <h3 className="font-syne font-semibold text-xl text-foreground mb-4">
+            <div className="bg-light-card dark:bg-dark-card border-2 border-light-border dark:border-dark-border p-6 shadow-soft">
+              <h3 className="font-display font-semibold text-xl text-light-foreground dark:text-dark-foreground mb-4">
                 Location
               </h3>
               
               <div className="space-y-3 mb-4">
-                <p className="font-inter text-foreground">{event.location}</p>
-                <p className="font-inter text-sm text-foreground/70">{event.address}</p>
+                <p className="font-sans text-light-foreground dark:text-dark-foreground">{event.location}</p>
+                <p className="font-sans text-sm text-light-foreground/70 dark:text-dark-foreground/70">{event.address}</p>
               </div>
               
-              <div className="aspect-video bg-white/5 rounded-xl mb-4 flex items-center justify-center">
-                <MapPin className="w-12 h-12 text-foreground/30" />
+              <div className="aspect-video bg-light-background/50 dark:bg-dark-background/50 mb-4 flex items-center justify-center">
+                <MapPin className="w-12 h-12 text-light-foreground/30 dark:text-dark-foreground/30" />
               </div>
               
-              <button className="w-full py-3 bg-white/10 backdrop-blur-glass border border-white/20 text-foreground font-inter font-medium rounded-xl hover:bg-white/20 transition-all duration-300">
+              <button className="w-full py-3 bg-light-card dark:bg-dark-card border-2 border-light-border dark:border-dark-border text-light-foreground dark:text-dark-foreground font-sans font-medium hover:bg-light-muted dark:hover:bg-dark-muted transition-all duration-300">
                 Get Directions
               </button>
             </div>
