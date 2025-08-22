@@ -37,7 +37,7 @@ const Navigation: React.FC = () => {
               <Link
                 key={path}
                 to={path}
-                className={`font-inter font-medium transition-all duration-300 hover:text-light-secondary dark:hover:text-dark-secondary ${
+                className={`font-sans font-medium transition-all duration-300 hover:text-light-secondary dark:hover:text-dark-secondary ${
                   isActive(path) ? 'text-light-secondary dark:text-dark-secondary' : 'text-light-foreground/70 dark:text-dark-foreground/70'
                 }`}
               >
@@ -66,7 +66,7 @@ const Navigation: React.FC = () => {
             </Link>
             <Link
               to="/create-event"
-              className="flex items-center space-x-2 px-4 py-2 bg-light-secondary dark:bg-dark-secondary rounded-full text-light-card dark:text-dark-background font-inter font-medium hover:opacity-90 transition-all duration-300 shadow-soft"
+              className="flex items-center space-x-2 px-4 py-2 bg-light-secondary dark:bg-dark-secondary rounded-full text-white font-sans font-medium hover:opacity-90 transition-all duration-300 shadow-soft"
             >
               <Plus className="w-4 h-4" />
               <span>Create Event</span>

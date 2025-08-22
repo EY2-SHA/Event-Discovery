@@ -1,8 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Calendar, MapPin, Users, Heart, Sparkles, TrendingUp, Clock } from 'lucide-react';
+import { Calendar, MapPin, Users, Heart, Sparkles, TrendingUp, Clock, Settings } from 'lucide-react';
 
 const RecommendationsPage: React.FC = () => {
+  const [selectedPreferences, setSelectedPreferences] = useState<string[]>([]);
+  
+  const eventTypes = [
+    'Music & Concerts', 'Art & Culture', 'Technology', 'Health & Wellness',
+    'Food & Drink', 'Sports & Fitness', 'Business', 'Education', 'Networking',
+    'Workshops', 'Conferences', 'Social Impact', 'Outdoor Activities', 'Creative Arts'
+  ];
+
+  const togglePreference = (preference: string) => {
+    setSelectedPreferences(prev => 
+      prev.includes(preference) 
+        ? prev.filter(p => p !== preference)
+        : [...prev, preference]
+    );
+  };
+
   const recommendedEvents = [
     {
       id: 1,
@@ -109,13 +125,13 @@ const RecommendationsPage: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12">
-          <h1 className="font-syne font-bold text-4xl md:text-5xl text-foreground mb-6">
+          <h1 className="font-display font-bold text-4xl md:text-5xl text-light-foreground dark:text-dark-foreground mb-6">
             Curated Just{' '}
-            <span className="bg-gradient-primary bg-clip-text text-transparent">
+            <span className="text-light-secondary dark:text-dark-secondary">
               For You
             </span>
           </h1>
-          <p className="font-inter text-xl text-foreground/70 max-w-2xl mx-auto">
+          <p className="font-sans text-xl text-light-foreground/70 dark:text-dark-foreground/70 max-w-2xl mx-auto">
             Personalized event recommendations based on your interests, location, and past experiences.
           </p>
         </div>
@@ -123,30 +139,36 @@ const RecommendationsPage: React.FC = () => {
         {/* Personalized Recommendations */}
         <section className="mb-16">
           <div className="flex items-center space-x-3 mb-8">
-            <div className="w-10 h-10 bg-gradient-primary rounded-full flex items-center justify-center">
-              <Sparkles className="w-5 h-5 text-background" />
+            <div className="w-10 h-10 bg-light-secondary dark:bg-dark-secondary rounded-full flex items-center justify-center">
+              <Sparkles className="w-5 h-5 text-white" />
             </div>
             <div>
-              <h2 className="font-syne font-semibold text-2xl text-foreground">
+              <h2 className="font-display font-semibold text-2xl text-light-foreground dark:text-dark-foreground">
                 Perfect Matches
               </h2>
-              <p className="font-inter text-foreground/70 text-sm">
+              <p className="font-sans text-light-foreground/70 dark:text-dark-foreground/70 text-sm">
                 Events we think you'll love
               </p>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {/* Wabi-Sabi Asymmetrical Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-auto">
             {recommendedEvents.map((event) => (
               <Link
                 key={event.id}
                 to={`/event/${event.id}`}
                 className="group block"
+                style={{
+                  transform: `rotate(${(event.id % 3 - 1) * 0.3}deg)`,
+                }}
               >
-                <div className="bg-white/10 backdrop-blur-glass rounded-2xl overflow-hidden border border-white/20 hover:border-white/40 transition-all duration-500 hover:transform hover:scale-105 relative">
+                <div className={`bg-light-card dark:bg-dark-card overflow-hidden border-2 border-light-border dark:border-dark-border hover:border-light-secondary dark:hover:border-dark-secondary transition-all duration-300 shadow-brutal hover:shadow-brutal-lg transform hover:-translate-y-1 relative ${
+                  event.id % 3 === 0 ? 'md:col-span-2 lg:col-span-1' : ''
+                }`}>
                   {/* Match Score Badge */}
                   <div className="absolute top-4 right-4 z-10">
-                    <div className="px-3 py-1 bg-gradient-primary text-background text-sm font-inter font-semibold rounded-full">
+                    <div className="px-3 py-1 bg-light-secondary dark:bg-dark-secondary text-white text-sm font-sans font-semibold">
                       {event.matchScore}% match
                     </div>
                   </div>
@@ -158,39 +180,39 @@ const RecommendationsPage: React.FC = () => {
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                     />
                     <div className="absolute top-4 left-4">
-                      <span className="px-3 py-1 bg-background/80 backdrop-blur-sm text-foreground text-sm font-inter font-medium rounded-full">
+                      <span className="px-3 py-1 bg-light-background/90 dark:bg-dark-background/90 text-light-foreground dark:text-dark-foreground text-sm font-sans font-medium">
                         {event.category}
                       </span>
                     </div>
                   </div>
 
                   <div className="p-6 space-y-4">
-                    <h3 className="font-syne font-semibold text-xl text-foreground group-hover:text-cyan transition-colors">
+                    <h3 className="font-display font-semibold text-xl text-light-foreground dark:text-dark-foreground group-hover:text-light-secondary dark:group-hover:text-dark-secondary transition-colors">
                       {event.title}
                     </h3>
 
                     <div className="space-y-2">
-                      <div className="flex items-center space-x-2 text-foreground/70 font-inter text-sm">
+                      <div className="flex items-center space-x-2 text-light-foreground/70 dark:text-dark-foreground/70 font-sans text-sm">
                         <Calendar className="w-4 h-4" />
                         <span>{event.date} at {event.time}</span>
                       </div>
-                      <div className="flex items-center space-x-2 text-foreground/70 font-inter text-sm">
+                      <div className="flex items-center space-x-2 text-light-foreground/70 dark:text-dark-foreground/70 font-sans text-sm">
                         <MapPin className="w-4 h-4" />
                         <span>{event.location}</span>
                       </div>
                       <div className="flex items-center justify-between">
-                        <div className="flex items-center space-x-2 text-foreground/70 font-inter text-sm">
+                        <div className="flex items-center space-x-2 text-light-foreground/70 dark:text-dark-foreground/70 font-sans text-sm">
                           <Users className="w-4 h-4" />
                           <span>{event.attendees} attending</span>
                         </div>
-                        <span className="font-inter font-semibold text-foreground">
+                        <span className="font-sans font-semibold text-light-foreground dark:text-dark-foreground">
                           {event.price}
                         </span>
                       </div>
                     </div>
 
                     <div className="pt-2 border-t border-white/10">
-                      <p className="font-inter text-xs text-cyan">
+                      <p className="font-sans text-xs text-light-secondary dark:text-dark-secondary">
                         {event.reason}
                       </p>
                     </div>
@@ -350,30 +372,66 @@ const RecommendationsPage: React.FC = () => {
         </section>
 
         {/* Personalization CTA */}
-        <section className="text-center bg-gradient-secondary rounded-3xl p-12 border border-white/20">
-          <h2 className="font-syne font-bold text-3xl text-foreground mb-4">
-            Make Your Recommendations Even{' '}
-            <span className="bg-gradient-primary bg-clip-text text-transparent">
-              Better
-            </span>
-          </h2>
-          <p className="font-inter text-foreground/70 mb-8 max-w-2xl mx-auto">
-            The more you engage with events, the better our recommendations become. 
-            Save events, follow organizers, and attend experiences to improve your personalized feed.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              to="/profile"
-              className="px-8 py-3 bg-gradient-primary text-background font-inter font-semibold rounded-full hover:scale-105 transition-all duration-300"
-            >
-              Update Preferences
-            </Link>
-            <Link
-              to="/search"
-              className="px-8 py-3 bg-white/10 backdrop-blur-glass border border-white/20 text-foreground font-inter font-medium rounded-full hover:bg-white/20 transition-all duration-300"
-            >
-              Explore All Events
-            </Link>
+        <section className="bg-light-muted dark:bg-dark-muted border-2 border-light-border dark:border-dark-border p-12">
+          <div className="text-center mb-8">
+            <div className="w-12 h-12 bg-light-secondary dark:bg-dark-secondary rounded-full flex items-center justify-center mx-auto mb-4">
+              <Settings className="w-6 h-6 text-white" />
+            </div>
+            <h2 className="font-display font-bold text-3xl text-light-foreground dark:text-dark-foreground mb-4">
+              Make Your Recommendations Even{' '}
+              <span className="text-light-secondary dark:text-dark-secondary">
+                Better
+              </span>
+            </h2>
+            <p className="font-sans text-light-foreground/70 dark:text-dark-foreground/70 mb-8 max-w-2xl mx-auto">
+              Select your interests to get more personalized event recommendations.
+            </p>
+          </div>
+          
+          {/* Preference Selection */}
+          <div className="mb-8">
+            <h3 className="font-display font-semibold text-xl text-light-foreground dark:text-dark-foreground mb-4 text-center">
+              Choose Your Interests
+            </h3>
+            <div className="flex flex-wrap gap-3 justify-center max-w-4xl mx-auto">
+              {eventTypes.map((type) => (
+                <button
+                  key={type}
+                  onClick={() => togglePreference(type)}
+                  className={`px-4 py-2 border-2 font-sans font-medium transition-all duration-300 ${
+                    selectedPreferences.includes(type)
+                      ? 'bg-light-secondary dark:bg-dark-secondary text-white border-light-secondary dark:border-dark-secondary'
+                      : 'bg-light-card dark:bg-dark-card text-light-foreground dark:text-dark-foreground border-light-border dark:border-dark-border hover:border-light-secondary dark:hover:border-dark-secondary'
+                  }`}
+                >
+                  {type}
+                </button>
+              ))}
+            </div>
+          </div>
+          
+          <div className="text-center">
+            <p className="font-sans text-light-foreground/70 dark:text-dark-foreground/70 mb-8 max-w-2xl mx-auto">
+              The more you engage with events, the better our recommendations become. 
+              Save events, follow organizers, and attend experiences to improve your personalized feed.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <button className="px-8 py-3 bg-light-secondary dark:bg-dark-secondary text-white font-sans font-semibold hover:opacity-90 transition-all duration-300">
+                Save Preferences
+              </button>
+              <Link
+                to="/profile"
+                className="px-8 py-3 bg-light-card dark:bg-dark-card border-2 border-light-border dark:border-dark-border text-light-foreground dark:text-dark-foreground font-sans font-medium hover:bg-light-muted dark:hover:bg-dark-muted transition-all duration-300"
+              >
+                Update Profile
+              </Link>
+              <Link
+                to="/search"
+                className="px-8 py-3 bg-light-card dark:bg-dark-card border-2 border-light-border dark:border-dark-border text-light-foreground dark:text-dark-foreground font-sans font-medium hover:bg-light-muted dark:hover:bg-dark-muted transition-all duration-300"
+              >
+                Explore All Events
+              </Link>
+            </div>
           </div>
         </section>
       </div>
