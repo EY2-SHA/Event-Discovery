@@ -91,7 +91,7 @@ const HomePage: React.FC = () => {
   {/* Background Image */}
   <div className="absolute inset-0">
     <img
-      src="https://images.pexels.com/photos/2747449/pexels-photo-2747449.jpeg"
+      src="https://images.pexels.com/photos/3585047/pexels-photo-3585047.jpeg"
       alt="Hero background"
       // Removed dark:opacity-50 to give full control to the gradient overlay
       className="w-full h-full object-cover"
