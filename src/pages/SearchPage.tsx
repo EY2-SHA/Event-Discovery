@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Search, Filter, MapPin, Calendar, DollarSign, Users } from 'lucide-react';
+import { Search, Filter, MapPin, Calendar, DollarSign, Users, SlidersHorizontal } from 'lucide-react';
 
 const SearchPage: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -111,46 +111,61 @@ const SearchPage: React.FC = () => {
   ];
 
   return (
-    <div className="pt-20 min-h-screen">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="pt-24 min-h-screen">
+      <div className="max-w-8xl mx-auto px-8 sm:px-12 lg:px-16">
         {/* Header */}
-        <div className="text-center mb-12">
-          <h1 className="font-display font-bold text-4xl md:text-5xl text-light-foreground dark:text-dark-foreground mb-6">
+        <div className="text-center mb-16">
+          <div className="mb-8">
+            <span className="inline-flex items-center px-6 py-3 bg-light-card dark:bg-dark-card rounded-handcrafted text-lg font-sans text-light-foreground/80 dark:text-dark-foreground/80 border border-light-border dark:border-dark-border shadow-handcrafted">
+              <Search className="w-5 h-5 mr-3" />
+              Discover Events
+            </span>
+          </div>
+          <h1 className="font-display font-bold text-5xl md:text-6xl text-light-foreground dark:text-dark-foreground mb-8">
             Discover Your Next{' '}
             <span className="text-light-secondary dark:text-dark-secondary">
               Experience
             </span>
           </h1>
-          <p className="font-sans text-xl text-light-foreground/70 dark:text-dark-foreground/70 max-w-2xl mx-auto">
+          <p className="font-sans text-2xl text-light-foreground/70 dark:text-dark-foreground/70 max-w-4xl mx-auto leading-relaxed">
             Find events that resonate with your soul and connect you with like-minded individuals.
           </p>
         </div>
 
         {/* Search & Filters */}
-        <div className="bg-light-card dark:bg-dark-card border-2 border-light-border dark:border-dark-border p-8 mb-12 shadow-soft">
+        <div className="bg-light-card dark:bg-dark-card border border-light-border dark:border-dark-border rounded-handcrafted p-10 mb-16 shadow-handcrafted">
+          <div className="flex items-center space-x-3 mb-8">
+            <div className="w-10 h-10 bg-light-secondary dark:bg-dark-secondary rounded-handcrafted flex items-center justify-center shadow-sketch">
+              <SlidersHorizontal className="w-5 h-5 text-white" />
+            </div>
+            <h2 className="font-display font-semibold text-2xl text-light-foreground dark:text-dark-foreground">
+              Find Your Perfect Event
+            </h2>
+          </div>
+          
           {/* Search Bar */}
-          <div className="relative mb-6">
-            <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-light-foreground/50 dark:text-dark-foreground/50" />
+          <div className="relative mb-8">
+            <Search className="absolute left-6 top-1/2 transform -translate-y-1/2 w-6 h-6 text-light-foreground/50 dark:text-dark-foreground/50" />
             <input
               type="text"
               placeholder="Search for events, topics, or organizers..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-12 pr-4 py-4 bg-light-background dark:bg-dark-background border-2 border-light-border dark:border-dark-border text-light-foreground dark:text-dark-foreground placeholder-light-foreground/50 dark:placeholder-dark-foreground/50 focus:outline-none focus:border-light-secondary dark:focus:border-dark-secondary transition-all duration-300 font-sans"
+              className="w-full pl-16 pr-6 py-5 bg-light-background dark:bg-dark-background border border-light-border dark:border-dark-border rounded-handcrafted text-light-foreground dark:text-dark-foreground placeholder-light-foreground/50 dark:placeholder-dark-foreground/50 focus:outline-none focus:border-light-secondary dark:focus:border-dark-secondary focus:ring-2 focus:ring-light-secondary/20 dark:focus:ring-dark-secondary/20 transition-all duration-300 font-sans text-lg shadow-sketch"
             />
           </div>
 
           {/* Filters */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            <div className="space-y-2">
-              <label className="flex items-center space-x-2 text-light-foreground/70 dark:text-dark-foreground/70 font-sans text-sm font-medium">
-                <Filter className="w-4 h-4" />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="space-y-3">
+              <label className="flex items-center space-x-3 text-light-foreground/70 dark:text-dark-foreground/70 font-sans text-base font-medium">
+                <Filter className="w-5 h-5" />
                 <span>Category</span>
               </label>
               <select
                 value={selectedCategory}
                 onChange={(e) => setSelectedCategory(e.target.value)}
-                className="w-full p-3 bg-light-background dark:bg-dark-background border-2 border-light-border dark:border-dark-border text-light-foreground dark:text-dark-foreground focus:outline-none focus:border-light-secondary dark:focus:border-dark-secondary transition-all duration-300 font-sans"
+                className="w-full p-4 bg-light-background dark:bg-dark-background border border-light-border dark:border-dark-border rounded-handcrafted text-light-foreground dark:text-dark-foreground focus:outline-none focus:border-light-secondary dark:focus:border-dark-secondary focus:ring-2 focus:ring-light-secondary/20 dark:focus:ring-dark-secondary/20 transition-all duration-300 font-sans shadow-sketch"
               >
                 {categories.map((category) => (
                   <option key={category.value} value={category.value}>
@@ -160,15 +175,15 @@ const SearchPage: React.FC = () => {
               </select>
             </div>
 
-            <div className="space-y-2">
-              <label className="flex items-center space-x-2 text-light-foreground/70 dark:text-dark-foreground/70 font-sans text-sm font-medium">
-                <MapPin className="w-4 h-4" />
+            <div className="space-y-3">
+              <label className="flex items-center space-x-3 text-light-foreground/70 dark:text-dark-foreground/70 font-sans text-base font-medium">
+                <MapPin className="w-5 h-5" />
                 <span>Location</span>
               </label>
               <select
                 value={selectedLocation}
                 onChange={(e) => setSelectedLocation(e.target.value)}
-                className="w-full p-3 bg-light-background dark:bg-dark-background border-2 border-light-border dark:border-dark-border text-light-foreground dark:text-dark-foreground focus:outline-none focus:border-light-secondary dark:focus:border-dark-secondary transition-all duration-300 font-sans"
+                className="w-full p-4 bg-light-background dark:bg-dark-background border border-light-border dark:border-dark-border rounded-handcrafted text-light-foreground dark:text-dark-foreground focus:outline-none focus:border-light-secondary dark:focus:border-dark-secondary focus:ring-2 focus:ring-light-secondary/20 dark:focus:ring-dark-secondary/20 transition-all duration-300 font-sans shadow-sketch"
               >
                 {locations.map((location) => (
                   <option key={location.value} value={location.value}>
@@ -178,15 +193,15 @@ const SearchPage: React.FC = () => {
               </select>
             </div>
 
-            <div className="space-y-2">
-              <label className="flex items-center space-x-2 text-light-foreground/70 dark:text-dark-foreground/70 font-sans text-sm font-medium">
-                <DollarSign className="w-4 h-4" />
+            <div className="space-y-3">
+              <label className="flex items-center space-x-3 text-light-foreground/70 dark:text-dark-foreground/70 font-sans text-base font-medium">
+                <DollarSign className="w-5 h-5" />
                 <span>Price Range</span>
               </label>
               <select
                 value={priceRange}
                 onChange={(e) => setPriceRange(e.target.value)}
-                className="w-full p-3 bg-light-background dark:bg-dark-background border-2 border-light-border dark:border-dark-border text-light-foreground dark:text-dark-foreground focus:outline-none focus:border-light-secondary dark:focus:border-dark-secondary transition-all duration-300 font-sans"
+                className="w-full p-4 bg-light-background dark:bg-dark-background border border-light-border dark:border-dark-border rounded-handcrafted text-light-foreground dark:text-dark-foreground focus:outline-none focus:border-light-secondary dark:focus:border-dark-secondary focus:ring-2 focus:ring-light-secondary/20 dark:focus:ring-dark-secondary/20 transition-all duration-300 font-sans shadow-sketch"
               >
                 {priceRanges.map((range) => (
                   <option key={range.value} value={range.value}>
@@ -196,32 +211,32 @@ const SearchPage: React.FC = () => {
               </select>
             </div>
 
-            <div className="space-y-2">
-              <label className="flex items-center space-x-2 text-light-foreground/70 dark:text-dark-foreground/70 font-sans text-sm font-medium">
-                <Calendar className="w-4 h-4" />
+            <div className="space-y-3">
+              <label className="flex items-center space-x-3 text-light-foreground/70 dark:text-dark-foreground/70 font-sans text-base font-medium">
+                <Calendar className="w-5 h-5" />
                 <span>Date</span>
               </label>
               <input
                 type="date"
-                className="w-full p-3 bg-light-background dark:bg-dark-background border-2 border-light-border dark:border-dark-border text-light-foreground dark:text-dark-foreground focus:outline-none focus:border-light-secondary dark:focus:border-dark-secondary transition-all duration-300 font-sans"
+                className="w-full p-4 bg-light-background dark:bg-dark-background border border-light-border dark:border-dark-border rounded-handcrafted text-light-foreground dark:text-dark-foreground focus:outline-none focus:border-light-secondary dark:focus:border-dark-secondary focus:ring-2 focus:ring-light-secondary/20 dark:focus:ring-dark-secondary/20 transition-all duration-300 font-sans shadow-sketch"
               />
             </div>
           </div>
         </div>
 
         {/* Results */}
-        <div className="mb-8">
-          <p className="font-sans text-light-foreground/70 dark:text-dark-foreground/70">
+        <div className="mb-12">
+          <p className="font-sans text-xl text-light-foreground/70 dark:text-dark-foreground/70">
             Found <span className="font-semibold text-light-foreground dark:text-dark-foreground">{events.length}</span> events
           </p>
         </div>
 
         {/* Events Grid - Wabi-Sabi Asymmetrical Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 auto-rows-auto">
           {events.map((event) => (
             <div
               key={event.id}
-              className={`bg-light-card dark:bg-dark-card overflow-hidden border-2 border-light-border dark:border-dark-border hover:border-light-secondary dark:hover:border-dark-secondary transition-all duration-300 shadow-brutal hover:shadow-brutal-lg transform hover:-translate-y-1 group cursor-pointer ${
+              className={`bg-light-card dark:bg-dark-card overflow-hidden border-2 border-light-border dark:border-dark-border hover:border-light-secondary dark:hover:border-dark-secondary transition-all duration-300 shadow-brutal hover:shadow-brutal-lg transform hover:-translate-y-2 group cursor-pointer hover:animate-sketch ${
                 event.id % 3 === 0 ? 'md:col-span-2 lg:col-span-1' : ''
               } ${
                 event.id % 4 === 0 ? 'lg:row-span-2' : ''
@@ -237,42 +252,42 @@ const SearchPage: React.FC = () => {
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
                 <div className="absolute top-4 left-4">
-                  <span className="px-3 py-1 bg-light-secondary dark:bg-dark-secondary text-white text-sm font-sans font-medium shadow-soft">
+                  <span className="px-4 py-2 bg-light-secondary dark:bg-dark-secondary text-white text-sm font-sans font-medium shadow-handcrafted rounded-sketch">
                     {event.category}
                   </span>
                 </div>
                 <div className="absolute top-4 right-4">
-                  <span className="px-3 py-1 bg-light-background/90 dark:bg-dark-background/90 text-light-foreground dark:text-dark-foreground text-sm font-sans font-medium">
+                  <span className="px-4 py-2 bg-light-background/90 dark:bg-dark-background/90 text-light-foreground dark:text-dark-foreground text-sm font-sans font-medium rounded-sketch shadow-handcrafted">
                     {event.price}
                   </span>
                 </div>
               </div>
 
-              <div className="p-6 space-y-4">
-                <h3 className="font-display font-semibold text-xl text-light-foreground dark:text-dark-foreground group-hover:text-light-secondary dark:group-hover:text-dark-secondary transition-colors">
+              <div className="p-8 space-y-5">
+                <h3 className="font-display font-semibold text-2xl text-light-foreground dark:text-dark-foreground group-hover:text-light-secondary dark:group-hover:text-dark-secondary transition-colors">
                   {event.title}
                 </h3>
                 
-                <p className="font-sans text-sm text-light-foreground/70 dark:text-dark-foreground/70 leading-relaxed">
+                <p className="font-sans text-base text-light-foreground/70 dark:text-dark-foreground/70 leading-relaxed">
                   {event.description}
                 </p>
 
-                <div className="space-y-2">
-                  <div className="flex items-center space-x-2 text-light-foreground/70 dark:text-dark-foreground/70 font-sans text-sm">
-                    <Calendar className="w-4 h-4" />
+                <div className="space-y-3">
+                  <div className="flex items-center space-x-3 text-light-foreground/70 dark:text-dark-foreground/70 font-sans text-base">
+                    <Calendar className="w-5 h-5" />
                     <span>{event.date} at {event.time}</span>
                   </div>
-                  <div className="flex items-center space-x-2 text-light-foreground/70 dark:text-dark-foreground/70 font-sans text-sm">
-                    <MapPin className="w-4 h-4" />
+                  <div className="flex items-center space-x-3 text-light-foreground/70 dark:text-dark-foreground/70 font-sans text-base">
+                    <MapPin className="w-5 h-5" />
                     <span>{event.location}</span>
                   </div>
-                  <div className="flex items-center space-x-2 text-light-foreground/70 dark:text-dark-foreground/70 font-sans text-sm">
-                    <Users className="w-4 h-4" />
+                  <div className="flex items-center space-x-3 text-light-foreground/70 dark:text-dark-foreground/70 font-sans text-base">
+                    <Users className="w-5 h-5" />
                     <span>{event.attendees} attending</span>
                   </div>
                 </div>
 
-                <button className="w-full py-3 bg-light-secondary dark:bg-dark-secondary text-white font-sans font-semibold hover:opacity-90 transition-all duration-300">
+                <button className="w-full py-4 bg-light-secondary dark:bg-dark-secondary text-white font-sans font-semibold hover:opacity-90 transition-all duration-300 rounded-handcrafted shadow-handcrafted hover:animate-sketch text-lg">
                   View Details
                 </button>
               </div>
@@ -281,8 +296,8 @@ const SearchPage: React.FC = () => {
         </div>
 
         {/* Load More */}
-        <div className="text-center mt-12">
-          <button className="px-8 py-3 bg-light-card dark:bg-dark-card rounded-full text-light-foreground dark:text-dark-foreground font-sans font-medium border-2 border-light-border dark:border-dark-border hover:bg-light-muted dark:hover:bg-dark-muted transition-all duration-300">
+        <div className="text-center mt-16">
+          <button className="px-10 py-4 bg-light-card dark:bg-dark-card rounded-handcrafted text-light-foreground dark:text-dark-foreground font-sans font-medium border border-light-border dark:border-dark-border hover:bg-light-muted dark:hover:bg-dark-muted transition-all duration-300 shadow-handcrafted text-lg">
             Load More Events
           </button>
         </div>

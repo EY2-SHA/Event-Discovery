@@ -8,7 +8,7 @@ interface LayoutProps {
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
-    <div className="min-h-screen bg-light-background dark:bg-dark-background text-light-foreground dark:text-dark-foreground transition-colors duration-300">
+    <div className="min-h-screen bg-light-background dark:bg-dark-background bg-handcrafted-light dark:bg-handcrafted-dark text-light-foreground dark:text-dark-foreground transition-colors duration-300">
       <Navigation />
       <main>
         {children}
