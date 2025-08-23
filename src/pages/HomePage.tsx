@@ -93,7 +93,7 @@ const HomePage: React.FC = () => {
           <img
             src="https://images.pexels.com/photos/2747449/pexels-photo-2747449.jpeg"
             alt="Hero background"
-            className="w-full h-full object-cover opacity-60 dark:opacity-20"
+            className="w-full h-full object-cover opacity-30 dark:opacity-20"
           />
           <div className="absolute inset-0 bg-gradient-to-br from-light-background/70 via-light-background/40 to-light-background/70 dark:from-dark-background/90 dark:via-dark-background/70 dark:to-dark-background/90"></div>
         </div>
