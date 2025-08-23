@@ -86,64 +86,67 @@ const HomePage: React.FC = () => {
 
   return (
     <div className="pt-16">
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Background Image */}
-        <div className="absolute inset-0">
-          <img
-            src="https://images.pexels.com/photos/2747449/pexels-photo-2747449.jpeg"
-            alt="Hero background"
-            className="w-full h-full object-cover dark:opacity-50"
-          />
-          <div className="absolute inset-0 bg-gradient-to-br from-light-background/70 via-light-background/40 to-light-background/70 dark:from-dark-background/90 dark:via-dark-background/70 dark:to-dark-background/90"></div>
-        </div>
+     {/* Hero Section */}
+<section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+  {/* Background Image */}
+  <div className="absolute inset-0">
+    <img
+      src="https://images.pexels.com/photos/2747449/pexels-photo-2747449.jpeg"
+      alt="Hero background"
+      // Removed dark:opacity-50 to give full control to the gradient overlay
+      className="w-full h-full object-cover"
+    />
+    {/* Modified gradient for better visibility and a seamless transition to the next section */}
+    <div className="absolute inset-0 bg-gradient-to-b from-light-background/10 via-light-background/30 to-light-background dark:from-dark-background/70 dark:via-dark-background/80 dark:to-dark-background"></div>
+  </div>
 
-        {/* Subtle Floating Elements */}
-        <div className="absolute top-20 left-10 w-20 h-20 bg-light-primary/20 dark:bg-dark-primary/20 rounded-handcrafted animate-float"></div>
-        <div className="absolute top-1/3 right-20 w-32 h-32 bg-light-secondary/10 dark:bg-dark-secondary/10 rounded-handcrafted animate-float" style={{ animationDelay: '2s' }}></div>
-        <div className="absolute bottom-1/4 left-1/4 w-16 h-16 bg-light-primary/15 dark:bg-dark-primary/15 rounded-handcrafted animate-float" style={{ animationDelay: '4s' }}></div>
+  {/* Subtle Floating Elements */}
+  <div className="absolute top-20 left-10 w-20 h-20 bg-light-primary/20 dark:bg-dark-primary/20 rounded-handcrafted animate-float"></div>
+  <div className="absolute top-1/3 right-20 w-32 h-32 bg-light-secondary/10 dark:bg-dark-secondary/10 rounded-handcrafted animate-float" style={{ animationDelay: '2s' }}></div>
+  <div className="absolute bottom-1/4 left-1/4 w-16 h-16 bg-light-primary/15 dark:bg-dark-primary/15 rounded-handcrafted animate-float" style={{ animationDelay: '4s' }}></div>
 
-        {/* Hero Content */}
-        <div className="relative z-10 text-center px-8 max-w-6xl mx-auto">
-          <div className="mb-12">
-            <span className="inline-flex items-center px-6 py-3 bg-light-card dark:bg-dark-card rounded-handcrafted text-lg font-sans text-light-foreground/80 dark:text-dark-foreground/80 border border-light-border dark:border-dark-border shadow-handcrafted">
-              <Sparkles className="w-4 h-4 mr-2" />
-              Discover Your Next Adventure
-            </span>
-          </div>
-          
-          <h1 className="font-display font-bold text-6xl md:text-8xl lg:text-9xl leading-tight mb-12 text-light-foreground dark:text-dark-foreground">
-            Find Events That{' '}
-            <span className="text-light-secondary dark:text-dark-secondary">
-              Inspire
-            </span>{' '}
-            Your Soul
-          </h1>
-          
-          <p className="font-sans text-2xl md:text-3xl text-light-foreground/70 dark:text-dark-foreground/70 leading-relaxed mb-16 max-w-4xl mx-auto">
-            Where extraordinary experiences meet kindred spirits. 
-            Discover curated events that transform moments into memories.
-          </p>
-          
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-            <Link
-              to="/search"
-              className="group flex items-center space-x-3 px-10 py-5 bg-light-secondary dark:bg-dark-secondary rounded-handcrafted text-white font-sans font-semibold hover:opacity-90 transition-all duration-300 shadow-handcrafted hover:animate-sketch text-xl"
-            >
-              <span>Explore Events</span>
-              <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
-            </Link>
-            
-            <Link
-              to="/how-it-works"
-              className="flex items-center space-x-3 px-10 py-5 bg-light-card dark:bg-dark-card rounded-handcrafted text-light-foreground dark:text-dark-foreground font-sans font-medium border border-light-border dark:border-dark-border hover:bg-light-muted dark:hover:bg-dark-muted transition-all duration-300 shadow-handcrafted text-xl"
-            >
-              <span>How It Works</span>
-            </Link>
-          </div>
-        </div>
-      </section>
-
+  {/* Hero Content */}
+  {/* Added vertical padding (py-24 md:py-32) for more whitespace */}
+  <div className="relative z-10 text-center px-8 max-w-6xl mx-auto py-24 md:py-32">
+    <div className="mb-12">
+      <span className="inline-flex items-center px-6 py-3 bg-light-card dark:bg-dark-card rounded-handcrafted text-lg font-sans text-light-foreground/80 dark:text-dark-foreground/80 border border-light-border dark:border-dark-border shadow-handcrafted">
+        <Sparkles className="w-4 h-4 mr-2" />
+        Discover Your Next Adventure
+      </span>
+    </div>
+    
+    <h1 className="font-display font-bold text-6xl md:text-8xl lg:text-9xl leading-tight mb-12 text-light-foreground dark:text-dark-foreground">
+      Find Events That{' '}
+      <span className="text-light-secondary dark:text-dark-secondary">
+        Inspire
+      </span>{' '}
+      Your Soul
+    </h1>
+    
+    {/* Increased margin-bottom (mb-20) for more space above the buttons */}
+    <p className="font-sans text-2xl md:text-3xl text-light-foreground/70 dark:text-dark-foreground/70 leading-relaxed mb-20 max-w-4xl mx-auto">
+      Where extraordinary experiences meet kindred spirits. 
+      Discover curated events that transform moments into memories.
+    </p>
+    
+    <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+      <Link
+        to="/search"
+        className="group flex items-center space-x-3 px-10 py-5 bg-light-secondary dark:bg-dark-secondary rounded-handcrafted text-white font-sans font-semibold hover:opacity-90 transition-all duration-300 shadow-handcrafted hover:animate-sketch text-xl"
+      >
+        <span>Explore Events</span>
+        <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
+      </Link>
+      
+      <Link
+        to="/how-it-works"
+        className="flex items-center space-x-3 px-10 py-5 bg-light-card dark:bg-dark-card rounded-handcrafted text-light-foreground dark:text-dark-foreground font-sans font-medium border border-light-border dark:border-dark-border hover:bg-light-muted dark:hover:bg-dark-muted transition-all duration-300 shadow-handcrafted text-xl"
+      >
+        <span>How It Works</span>
+      </Link>
+    </div>
+  </div>
+</section>
       {/* Stats Section */}
       <section className="py-32 relative" ref={statsRef}>
         <div className="max-w-8xl mx-auto px-8 sm:px-12 lg:px-16">
