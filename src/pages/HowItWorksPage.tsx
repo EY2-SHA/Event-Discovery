@@ -165,7 +165,7 @@ const HowItWorksPage: React.FC = () => {
                       <img
                         src={`https://images.pexels.com/photos/${3822621 + index * 100}/pexels-photo-${3822621 + index * 100}.jpeg`}
                         alt={step.title}
-                        className="absolute inset-0 w-full h-full object-cover opacity-20"
+                        className="absolute inset-0 w-full h-full object-cover opacity-90"
                         onError={(e) => {
                           e.currentTarget.style.display = 'none';
                         }}
