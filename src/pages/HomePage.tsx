@@ -89,7 +89,7 @@ const HomePage: React.FC = () => {
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {/* Background Image */}
-        <div className="absolute>
+        <div className="absolute inset-0">
           <img
             src="https://images.pexels.com/photos/2747449/pexels-photo-2747449.jpeg"
             alt="Hero background"
