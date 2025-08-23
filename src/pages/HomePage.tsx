@@ -97,7 +97,7 @@ const HomePage: React.FC = () => {
       className="w-full h-full object-cover"
     />
     {/* Modified gradient for better visibility and a seamless transition to the next section */}
-    <div className="absolute inset-0 bg-gradient-to-b from-light-background/10 via-light-background/30 to-light-background dark:from-dark-background/70 dark:via-dark-background/80 dark:to-dark-background"></div>
+    <div className="absolute inset-0 bg-gradient-to-b from-light-background/10 via-light-background/30 to-gray-background dark:from-dark-background/70 dark:via-dark-background/80 dark:to-dark-background"></div>
   </div>
 
   {/* Subtle Floating Elements */}
