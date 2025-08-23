@@ -135,7 +135,7 @@ const HowItWorksPage: React.FC = () => {
                         {step.number}
                       </div>
                       <div className="w-16 h-16 bg-light-secondary dark:bg-dark-secondary rounded-handcrafted flex items-center justify-center shadow-handcrafted">
-                        <step.icon className="w-8 h-8 text-white" />
+                       
                       </div>
                     </div>
                     
@@ -170,7 +170,7 @@ const HowItWorksPage: React.FC = () => {
                           e.currentTarget.style.display = 'none';
                         }}
                       />
-                      <step.icon className="w-32 h-32 text-light-secondary dark:text-dark-secondary relative z-10" />
+                     
                       <div className="absolute inset-0 bg-gradient-to-br from-transparent to-light-secondary/20 dark:to-dark-secondary/20"></div>
                     </div>
                     {/* Decorative elements */}
@@ -207,7 +207,7 @@ const HowItWorksPage: React.FC = () => {
               >
                 <div className="bg-light-card dark:bg-dark-card border border-light-border dark:border-dark-border rounded-handcrafted p-12 hover:border-light-secondary dark:hover:border-dark-secondary transition-all duration-300 h-full shadow-handcrafted group-hover:shadow-brutal hover:animate-sketch">
                   <div className="w-16 h-16 bg-light-secondary dark:bg-dark-secondary rounded-handcrafted flex items-center justify-center mb-8 shadow-handcrafted">
-                    <step.icon className="w-8 h-8 text-white" />
+                    
                   </div>
                   
                   <h3 className="font-display font-semibold text-2xl text-light-foreground dark:text-dark-foreground mb-6">
