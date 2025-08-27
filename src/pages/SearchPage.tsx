@@ -165,7 +165,7 @@ const SearchPage: React.FC = () => {
               <select
                 value={selectedCategory}
                 onChange={(e) => setSelectedCategory(e.target.value)}
-                className="w-full p-3 bg-light-background dark:bg-dark-background border border-light-border dark:border-dark-border rounded-handcrafted text-light-foreground dark:text-dark-foreground focus:outline-none focus:border-light-secondary dark:focus:border-dark-secondary focus:ring-2 focus:ring-light-secondary/20 dark:focus:ring-dark-secondary/20 transition-all duration-300 font-sans shadow-sketch text-sm"
+                className="w-full p-3 bg-light-card dark:bg-dark-card border border-light-border dark:border-dark-border rounded-handcrafted text-light-foreground dark:text-dark-foreground focus:outline-none focus:border-light-secondary dark:focus:border-dark-secondary focus:ring-2 focus:ring-light-secondary/20 dark:focus:ring-dark-secondary/20 transition-all duration-300 font-sans shadow-handcrafted dark:shadow-handcrafted-dark text-sm appearance-none cursor-pointer hover:border-light-secondary/50 dark:hover:border-dark-secondary/50"
               >
                 {categories.map((category) => (
                   <option key={category.value} value={category.value}>
@@ -183,7 +183,7 @@ const SearchPage: React.FC = () => {
               <select
                 value={selectedLocation}
                 onChange={(e) => setSelectedLocation(e.target.value)}
-                className="w-full p-3 bg-light-background dark:bg-dark-background border border-light-border dark:border-dark-border rounded-handcrafted text-light-foreground dark:text-dark-foreground focus:outline-none focus:border-light-secondary dark:focus:border-dark-secondary focus:ring-2 focus:ring-light-secondary/20 dark:focus:ring-dark-secondary/20 transition-all duration-300 font-sans shadow-sketch text-sm"
+                className="w-full p-3 bg-light-card dark:bg-dark-card border border-light-border dark:border-dark-border rounded-handcrafted text-light-foreground dark:text-dark-foreground focus:outline-none focus:border-light-secondary dark:focus:border-dark-secondary focus:ring-2 focus:ring-light-secondary/20 dark:focus:ring-dark-secondary/20 transition-all duration-300 font-sans shadow-handcrafted dark:shadow-handcrafted-dark text-sm appearance-none cursor-pointer hover:border-light-secondary/50 dark:hover:border-dark-secondary/50"
               >
                 {locations.map((location) => (
                   <option key={location.value} value={location.value}>
@@ -201,7 +201,7 @@ const SearchPage: React.FC = () => {
               <select
                 value={priceRange}
                 onChange={(e) => setPriceRange(e.target.value)}
-                className="w-full p-3 bg-light-background dark:bg-dark-background border border-light-border dark:border-dark-border rounded-handcrafted text-light-foreground dark:text-dark-foreground focus:outline-none focus:border-light-secondary dark:focus:border-dark-secondary focus:ring-2 focus:ring-light-secondary/20 dark:focus:ring-dark-secondary/20 transition-all duration-300 font-sans shadow-sketch text-sm"
+                className="w-full p-3 bg-light-card dark:bg-dark-card border border-light-border dark:border-dark-border rounded-handcrafted text-light-foreground dark:text-dark-foreground focus:outline-none focus:border-light-secondary dark:focus:border-dark-secondary focus:ring-2 focus:ring-light-secondary/20 dark:focus:ring-dark-secondary/20 transition-all duration-300 font-sans shadow-handcrafted dark:shadow-handcrafted-dark text-sm appearance-none cursor-pointer hover:border-light-secondary/50 dark:hover:border-dark-secondary/50"
               >
                 {priceRanges.map((range) => (
                   <option key={range.value} value={range.value}>
@@ -218,7 +218,7 @@ const SearchPage: React.FC = () => {
               </label>
               <input
                 type="date"
-                className="w-full p-3 bg-light-background dark:bg-dark-background border border-light-border dark:border-dark-border rounded-handcrafted text-light-foreground dark:text-dark-foreground focus:outline-none focus:border-light-secondary dark:focus:border-dark-secondary focus:ring-2 focus:ring-light-secondary/20 dark:focus:ring-dark-secondary/20 transition-all duration-300 font-sans shadow-sketch text-sm"
+                className="w-full p-3 bg-light-card dark:bg-dark-card border border-light-border dark:border-dark-border rounded-handcrafted text-light-foreground dark:text-dark-foreground focus:outline-none focus:border-light-secondary dark:focus:border-dark-secondary focus:ring-2 focus:ring-light-secondary/20 dark:focus:ring-dark-secondary/20 transition-all duration-300 font-sans shadow-handcrafted dark:shadow-handcrafted-dark text-sm cursor-pointer hover:border-light-secondary/50 dark:hover:border-dark-secondary/50"
               />
             </div>
           </div>
@@ -236,7 +236,7 @@ const SearchPage: React.FC = () => {
           {events.map((event) => (
             <div
               key={event.id}
-              className={`bg-light-card dark:bg-dark-card overflow-hidden border-2 border-light-border dark:border-dark-border hover:border-light-secondary dark:hover:border-dark-secondary transition-all duration-300 shadow-brutal hover:shadow-brutal-lg transform hover:-translate-y-2 group cursor-pointer hover:animate-sketch ${
+              className={`bg-light-card dark:bg-dark-card overflow-hidden border-2 border-light-border dark:border-dark-border hover:border-light-secondary dark:hover:border-dark-secondary transition-all duration-300 shadow-brutal dark:shadow-brutal-dark group cursor-pointer ${
                 event.id % 3 === 0 ? 'md:col-span-2 lg:col-span-1' : ''
               } ${
                 event.id % 4 === 0 ? 'lg:row-span-2' : ''
@@ -249,7 +249,7 @@ const SearchPage: React.FC = () => {
                 <img
                   src={event.image}
                   alt={event.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  className="w-full h-full object-cover"
                 />
                 <div className="absolute top-4 left-4">
                   <span className="px-3 py-1 bg-light-secondary dark:bg-dark-secondary text-white text-xs font-sans font-medium shadow-handcrafted rounded-sketch">

@@ -141,7 +141,7 @@ const ContactPage: React.FC = () => {
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block font-inter font-medium text-foreground mb-2">
+                  <label className="block font-syne font-medium text-foreground mb-3 text-sm">
                     Your Name
                   </label>
                   <input
@@ -150,13 +150,13 @@ const ContactPage: React.FC = () => {
                     value={formData.name}
                     onChange={handleInputChange}
                     required
-                    className="w-full p-4 bg-background/50 border border-white/20 rounded-xl text-foreground placeholder-foreground/50 focus:outline-none focus:border-cyan transition-all duration-300 font-inter"
+                    className="w-full p-4 bg-light-card dark:bg-dark-card border border-light-border dark:border-dark-border rounded-handcrafted text-light-foreground dark:text-dark-foreground placeholder-light-foreground/50 dark:placeholder-dark-foreground/50 focus:outline-none focus:border-light-secondary dark:focus:border-dark-secondary focus:ring-2 focus:ring-light-secondary/20 dark:focus:ring-dark-secondary/20 transition-all duration-300 font-syne shadow-handcrafted dark:shadow-handcrafted-dark text-sm"
                     placeholder="Enter your name"
                   />
                 </div>
                 
                 <div>
-                  <label className="block font-inter font-medium text-foreground mb-2">
+                  <label className="block font-syne font-medium text-foreground mb-3 text-sm">
                     Email Address
                   </label>
                   <input
@@ -165,21 +165,21 @@ const ContactPage: React.FC = () => {
                     value={formData.email}
                     onChange={handleInputChange}
                     required
-                    className="w-full p-4 bg-background/50 border border-white/20 rounded-xl text-foreground placeholder-foreground/50 focus:outline-none focus:border-cyan transition-all duration-300 font-inter"
+                    className="w-full p-4 bg-light-card dark:bg-dark-card border border-light-border dark:border-dark-border rounded-handcrafted text-light-foreground dark:text-dark-foreground placeholder-light-foreground/50 dark:placeholder-dark-foreground/50 focus:outline-none focus:border-light-secondary dark:focus:border-dark-secondary focus:ring-2 focus:ring-light-secondary/20 dark:focus:ring-dark-secondary/20 transition-all duration-300 font-syne shadow-handcrafted dark:shadow-handcrafted-dark text-sm"
                     placeholder="Enter your email"
                   />
                 </div>
               </div>
               
               <div>
-                <label className="block font-inter font-medium text-foreground mb-2">
+                <label className="block font-syne font-medium text-foreground mb-3 text-sm">
                   Inquiry Type
                 </label>
                 <select
                   name="type"
                   value={formData.type}
                   onChange={handleInputChange}
-                  className="w-full p-4 bg-background/50 border border-white/20 rounded-xl text-foreground focus:outline-none focus:border-cyan transition-all duration-300 font-inter"
+                  className="w-full p-4 bg-light-card dark:bg-dark-card border border-light-border dark:border-dark-border rounded-handcrafted text-light-foreground dark:text-dark-foreground focus:outline-none focus:border-light-secondary dark:focus:border-dark-secondary focus:ring-2 focus:ring-light-secondary/20 dark:focus:ring-dark-secondary/20 transition-all duration-300 font-syne shadow-handcrafted dark:shadow-handcrafted-dark text-sm appearance-none cursor-pointer"
                 >
                   <option value="general">General Inquiry</option>
                   <option value="support">Technical Support</option>
@@ -190,7 +190,7 @@ const ContactPage: React.FC = () => {
               </div>
               
               <div>
-                <label className="block font-inter font-medium text-foreground mb-2">
+                <label className="block font-syne font-medium text-foreground mb-3 text-sm">
                   Subject
                 </label>
                 <input
@@ -199,13 +199,13 @@ const ContactPage: React.FC = () => {
                   value={formData.subject}
                   onChange={handleInputChange}
                   required
-                  className="w-full p-4 bg-background/50 border border-white/20 rounded-xl text-foreground placeholder-foreground/50 focus:outline-none focus:border-cyan transition-all duration-300 font-inter"
+                  className="w-full p-4 bg-light-card dark:bg-dark-card border border-light-border dark:border-dark-border rounded-handcrafted text-light-foreground dark:text-dark-foreground placeholder-light-foreground/50 dark:placeholder-dark-foreground/50 focus:outline-none focus:border-light-secondary dark:focus:border-dark-secondary focus:ring-2 focus:ring-light-secondary/20 dark:focus:ring-dark-secondary/20 transition-all duration-300 font-syne shadow-handcrafted dark:shadow-handcrafted-dark text-sm"
                   placeholder="What's this about?"
                 />
               </div>
               
               <div>
-                <label className="block font-inter font-medium text-foreground mb-2">
+                <label className="block font-syne font-medium text-foreground mb-3 text-sm">
                   Message
                 </label>
                 <textarea
@@ -214,14 +214,14 @@ const ContactPage: React.FC = () => {
                   onChange={handleInputChange}
                   required
                   rows={6}
-                  className="w-full p-4 bg-background/50 border border-white/20 rounded-xl text-foreground placeholder-foreground/50 focus:outline-none focus:border-cyan transition-all duration-300 font-inter resize-none"
+                  className="w-full p-4 bg-light-card dark:bg-dark-card border border-light-border dark:border-dark-border rounded-handcrafted text-light-foreground dark:text-dark-foreground placeholder-light-foreground/50 dark:placeholder-dark-foreground/50 focus:outline-none focus:border-light-secondary dark:focus:border-dark-secondary focus:ring-2 focus:ring-light-secondary/20 dark:focus:ring-dark-secondary/20 transition-all duration-300 font-syne shadow-handcrafted dark:shadow-handcrafted-dark text-sm resize-none"
                   placeholder="Tell us how we can help..."
                 />
               </div>
               
               <button
                 type="submit"
-                className="w-full flex items-center justify-center space-x-2 py-4 bg-gradient-primary text-background font-inter font-semibold rounded-xl hover:scale-105 transition-all duration-300"
+                className="w-full flex items-center justify-center space-x-2 py-4 bg-light-secondary dark:bg-dark-secondary text-white font-syne font-semibold rounded-handcrafted hover:opacity-90 transition-all duration-300 shadow-handcrafted dark:shadow-handcrafted-dark text-sm"
               >
                 <Send className="w-5 h-5" />
                 <span>Send Message</span>

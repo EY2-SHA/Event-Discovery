@@ -28,13 +28,13 @@ const CreateEventPage: React.FC = () => {
               Create Event
             </span>
           </div>
-          <h1 className="font-display font-bold text-5xl md:text-6xl text-light-foreground dark:text-dark-foreground mb-8">
+          <h1 className="font-syne font-bold text-4xl md:text-5xl text-light-foreground dark:text-dark-foreground mb-6">
             Create Your{' '}
             <span className="text-light-secondary dark:text-dark-secondary">
               Event
             </span>
           </h1>
-          <p className="font-sans text-2xl text-light-foreground/70 dark:text-dark-foreground/70 max-w-4xl mx-auto leading-relaxed">
+          <p className="font-syne text-base text-light-foreground/70 dark:text-dark-foreground/70 max-w-4xl mx-auto leading-relaxed">
             Bring your vision to life and connect with your community through meaningful experiences.
           </p>
         </div>
@@ -47,8 +47,8 @@ const CreateEventPage: React.FC = () => {
                 <div
                   className={`w-12 h-12 rounded-handcrafted flex items-center justify-center font-sans font-semibold text-base transition-all duration-300 shadow-sketch ${
                     i + 1 <= currentStep
-                      ? 'bg-light-secondary dark:bg-dark-secondary text-white'
-                      : 'bg-light-muted dark:bg-dark-muted text-light-foreground/50 dark:text-dark-foreground/50 border border-light-border dark:border-dark-border'
+                      ? 'bg-light-secondary dark:bg-dark-secondary text-white shadow-handcrafted dark:shadow-handcrafted-dark'
+                      : 'bg-light-muted dark:bg-dark-muted text-light-foreground/50 dark:text-dark-foreground/50 border border-light-border dark:border-dark-border shadow-handcrafted dark:shadow-handcrafted-dark'
                   }`}
                 >
                   {i + 1 <= currentStep ? <CheckCircle className="w-6 h-6" /> : i + 1}
@@ -57,7 +57,7 @@ const CreateEventPage: React.FC = () => {
                   <div className="flex-1 mx-4">
                     <div
                       className={`h-2 rounded-full transition-all duration-300 ${
-                      i + 1 < currentStep ? 'bg-light-secondary dark:bg-dark-secondary' : 'bg-light-border dark:bg-dark-border'
+                      i + 1 < currentStep ? 'bg-light-secondary dark:bg-dark-secondary shadow-handcrafted dark:shadow-handcrafted-dark' : 'bg-light-border dark:bg-dark-border'
                       }`}
                     />
                   </div>
@@ -66,7 +66,7 @@ const CreateEventPage: React.FC = () => {
             ))}
           </div>
           <div className="text-center">
-            <span className="font-sans text-xl text-light-foreground/70 dark:text-dark-foreground/70 font-medium">
+            <span className="font-syne text-base text-light-foreground/70 dark:text-dark-foreground/70 font-medium">
               Step {currentStep} of {totalSteps}: {stepTitles[currentStep - 1]}
             </span>
           </div>

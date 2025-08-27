@@ -128,33 +128,33 @@ const FAQPage: React.FC = () => {
       <section className="py-20 text-center">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-6">
-            <span className="inline-flex items-center px-4 py-2 bg-white/10 backdrop-blur-glass rounded-full text-sm font-inter text-foreground/80 border border-white/20">
+            <span className="inline-flex items-center px-4 py-2 bg-light-secondary/20 dark:bg-dark-secondary/20 rounded-handcrafted text-sm font-syne text-light-foreground dark:text-dark-foreground border border-light-secondary/30 dark:border-dark-secondary/30 shadow-handcrafted dark:shadow-handcrafted-dark">
               <HelpCircle className="w-4 h-4 mr-2" />
               Frequently Asked Questions
             </span>
           </div>
           
-          <h1 className="font-syne font-bold text-5xl md:text-6xl text-foreground mb-8">
+          <h1 className="font-syne font-bold text-4xl md:text-5xl text-light-foreground dark:text-dark-foreground mb-8">
             We're Here to{' '}
-            <span className="bg-gradient-primary bg-clip-text text-transparent">
+            <span className="text-light-secondary dark:text-dark-secondary">
               Help
             </span>
           </h1>
           
-          <p className="font-inter text-xl text-foreground/70 leading-relaxed max-w-2xl mx-auto mb-8">
+          <p className="font-syne text-base text-light-foreground/70 dark:text-dark-foreground/70 leading-relaxed max-w-2xl mx-auto mb-8">
             Find quick answers to common questions about Eventide. 
             Can't find what you're looking for? We're always here to help.
           </p>
 
           {/* Search */}
           <div className="max-w-xl mx-auto relative">
-            <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-foreground/50" />
+            <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 w-4 h-4 text-light-foreground/50 dark:text-dark-foreground/50" />
             <input
               type="text"
               placeholder="Search frequently asked questions..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-12 pr-4 py-4 bg-white/10 backdrop-blur-glass border border-white/20 rounded-xl text-foreground placeholder-foreground/50 focus:outline-none focus:border-cyan transition-all duration-300 font-inter"
+              className="w-full pl-12 pr-4 py-4 bg-light-card dark:bg-dark-card border border-light-border dark:border-dark-border rounded-handcrafted text-light-foreground dark:text-dark-foreground placeholder-light-foreground/50 dark:placeholder-dark-foreground/50 focus:outline-none focus:border-light-secondary dark:focus:border-dark-secondary focus:ring-2 focus:ring-light-secondary/20 dark:focus:ring-dark-secondary/20 transition-all duration-300 font-syne shadow-handcrafted dark:shadow-handcrafted-dark text-sm"
             />
           </div>
         </div>
@@ -176,8 +176,8 @@ const FAQPage: React.FC = () => {
           ) : (
             <div className="space-y-8">
               {filteredFAQs.map((category, categoryIndex) => (
-                <div key={categoryIndex} className="bg-white/10 backdrop-blur-glass rounded-3xl border border-white/20 p-8">
-                  <h2 className="font-syne font-bold text-2xl text-foreground mb-6">
+                <div key={categoryIndex} className="bg-light-card dark:bg-dark-card rounded-handcrafted border border-light-border dark:border-dark-border p-6 shadow-handcrafted dark:shadow-handcrafted-dark">
+                  <h2 className="font-syne font-bold text-xl text-light-foreground dark:text-dark-foreground mb-4">
                     {category.title}
                   </h2>
                   
@@ -189,25 +189,25 @@ const FAQPage: React.FC = () => {
                       return (
                         <div
                           key={faqIndex}
-                          className="bg-background/20 rounded-xl border border-white/10 overflow-hidden"
+                          className="bg-light-muted/30 dark:bg-dark-muted/30 rounded-handcrafted border border-light-border/50 dark:border-dark-border/50 overflow-hidden"
                         >
                           <button
                             onClick={() => toggleItem(globalIndex)}
-                            className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-white/5 transition-all duration-300"
+                            className="w-full px-4 py-3 text-left flex items-center justify-between hover:bg-light-muted/50 dark:hover:bg-dark-muted/50 transition-all duration-300"
                           >
-                            <span className="font-inter font-medium text-foreground pr-4">
+                            <span className="font-syne font-medium text-light-foreground dark:text-dark-foreground pr-4 text-sm">
                               {faq.question}
                             </span>
                             {isOpen ? (
-                              <ChevronUp className="w-5 h-5 text-foreground/70 flex-shrink-0" />
+                              <ChevronUp className="w-4 h-4 text-light-foreground/70 dark:text-dark-foreground/70 flex-shrink-0" />
                             ) : (
-                              <ChevronDown className="w-5 h-5 text-foreground/70 flex-shrink-0" />
+                              <ChevronDown className="w-4 h-4 text-light-foreground/70 dark:text-dark-foreground/70 flex-shrink-0" />
                             )}
                           </button>
                           
                           {isOpen && (
-                            <div className="px-6 pb-4">
-                              <p className="font-inter text-foreground/70 leading-relaxed">
+                            <div className="px-4 pb-3">
+                              <p className="font-syne text-light-foreground/70 dark:text-dark-foreground/70 leading-relaxed text-sm">
                                 {faq.answer}
                               </p>
                             </div>

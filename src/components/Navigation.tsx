@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Search, User, Plus, Menu, X, Sun, Moon, Sparkles } from 'lucide-react';
 import { useTheme } from '../contexts/ThemeContext';
@@ -6,7 +6,19 @@ import { useTheme } from '../contexts/ThemeContext';
 const Navigation: React.FC = () => {
   const location = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
   const { theme, toggleTheme } = useTheme();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      const heroHeight = window.innerHeight * 0.8; // Approximate hero section height
+      setIsVisible(scrollPosition > heroHeight);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const isActive = (path: string) => location.pathname === path;
 
@@ -18,7 +30,9 @@ const Navigation: React.FC = () => {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-light-card/95 dark:bg-dark-card/95 backdrop-blur-sm border-b border-light-border dark:border-dark-border shadow-handcrafted">
+    <nav className={`fixed top-0 left-0 right-0 z-50 bg-light-card/95 dark:bg-dark-card/95 backdrop-blur-sm border-b border-light-border dark:border-dark-border shadow-handcrafted transition-transform duration-300 ${
+      isVisible ? 'translate-y-0' : '-translate-y-full'
+    }`}>
       <div className="max-w-8xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}

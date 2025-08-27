@@ -61,27 +61,27 @@ const AboutPage: React.FC = () => {
           <img
             src="https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg"
             alt="Team collaboration"
-            className="w-full h-full object-cover opacity-20"
+            className="w-full h-full object-cover opacity-30 dark:opacity-20"
           />
-          <div className="absolute inset-0 bg-gradient-to-br from-background/80 via-background/60 to-background/80"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-light-background/80 via-light-background/60 to-light-background/80 dark:from-dark-background/80 dark:via-dark-background/60 dark:to-dark-background/80"></div>
         </div>
 
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="mb-6">
-            <span className="inline-flex items-center px-4 py-2 bg-white/10 backdrop-blur-glass rounded-full text-sm font-inter text-foreground/80 border border-white/20">
+            <span className="inline-flex items-center px-4 py-2 bg-light-secondary/20 dark:bg-dark-secondary/20 rounded-handcrafted text-sm font-syne text-light-foreground dark:text-dark-foreground border border-light-secondary/30 dark:border-dark-secondary/30 shadow-handcrafted dark:shadow-handcrafted-dark">
               <Heart className="w-4 h-4 mr-2" />
               Our Story
             </span>
           </div>
           
-          <h1 className="font-syne font-bold text-5xl md:text-6xl text-foreground mb-8">
+          <h1 className="font-syne font-bold text-4xl md:text-5xl text-light-foreground dark:text-dark-foreground mb-8">
             Building Bridges Through{' '}
-            <span className="bg-gradient-primary bg-clip-text text-transparent">
+            <span className="text-light-secondary dark:text-dark-secondary">
               Shared Experiences
             </span>
           </h1>
           
-          <p className="font-inter text-xl text-foreground/70 leading-relaxed max-w-3xl mx-auto">
+          <p className="font-syne text-base text-light-foreground/70 dark:text-dark-foreground/70 leading-relaxed max-w-3xl mx-auto">
             Eventide was born from a simple belief: that our most meaningful moments happen when we come together 
             with intention, curiosity, and open hearts. We're more than an event platform—we're a movement toward 
             deeper human connection.
@@ -124,16 +124,16 @@ const AboutPage: React.FC = () => {
       </section>
 
       {/* Values Section */}
-      <section className="py-20 bg-gradient-to-br from-white/5 to-white/10">
+      <section className="py-20 bg-light-muted/30 dark:bg-dark-muted/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="font-syne font-bold text-4xl text-foreground mb-6">
+            <h2 className="font-syne font-bold text-3xl text-light-foreground dark:text-dark-foreground mb-6">
               What We{' '}
-              <span className="bg-gradient-primary bg-clip-text text-transparent">
+              <span className="text-light-secondary dark:text-dark-secondary">
                 Stand For
               </span>
             </h2>
-            <p className="font-inter text-xl text-foreground/70 max-w-2xl mx-auto">
+            <p className="font-syne text-base text-light-foreground/70 dark:text-dark-foreground/70 max-w-2xl mx-auto">
               Our values guide every decision we make and every experience we curate.
             </p>
           </div>
@@ -142,15 +142,15 @@ const AboutPage: React.FC = () => {
             {values.map((value, index) => (
               <div
                 key={index}
-                className="bg-white/10 backdrop-blur-glass rounded-2xl border border-white/20 p-8 hover:border-white/40 transition-all duration-300"
+                className="bg-light-card dark:bg-dark-card rounded-handcrafted border border-light-border dark:border-dark-border p-6 hover:border-light-secondary/50 dark:hover:border-dark-secondary/50 transition-all duration-300 shadow-handcrafted dark:shadow-handcrafted-dark"
               >
-                <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center mb-6">
-                  <value.icon className="w-6 h-6 text-background" />
+                <div className="w-12 h-12 bg-light-secondary dark:bg-dark-secondary rounded-handcrafted flex items-center justify-center mb-4 shadow-handcrafted dark:shadow-handcrafted-dark">
+                  <value.icon className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="font-syne font-semibold text-xl text-foreground mb-4">
+                <h3 className="font-syne font-semibold text-lg text-light-foreground dark:text-dark-foreground mb-3">
                   {value.title}
                 </h3>
-                <p className="font-inter text-foreground/70 leading-relaxed">
+                <p className="font-syne text-sm text-light-foreground/70 dark:text-dark-foreground/70 leading-relaxed">
                   {value.description}
                 </p>
               </div>
