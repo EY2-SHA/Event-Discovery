@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Navigation from './Navigation';
+import Navigation from '../components/Navigation.tsx';
 
 import { ArrowRight, Calendar, Users, Sparkles, TrendingUp, Heart } from 'lucide-react';
 import { useEffect, useState } from 'react';
