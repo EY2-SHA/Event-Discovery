@@ -88,11 +88,12 @@ const HomePage: React.FC = () => {
 
   return (
     <div className="pt-16">
-           <Navigation />
+   
      {/* Hero Section */}
 <section className="relative min-h-screen flex items-center justify-center overflow-hidden" id="hero-section">
   {/* Background Image */}
   <div className="absolute inset-0">
+            <Navigation />
     <img
       src="https://images.pexels.com/photos/3585047/pexels-photo-3585047.jpeg"
       alt="Hero background"
