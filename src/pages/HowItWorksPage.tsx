@@ -91,14 +91,14 @@ const HowItWorksPage: React.FC = () => {
             </span>
           </div>
           
-          <h1 className="font-syne font-bold text-4xl md:text-5xl text-light-foreground dark:text-dark-foreground mb-8">
+          <h1 className="font-display font-bold text-6xl md:text-7xl text-light-foreground dark:text-dark-foreground mb-12">
             Your Journey to{' '}
             <span className="text-light-secondary dark:text-dark-secondary">
               Meaningful Connection
             </span>
           </h1>
           
-          <p className="font-syne text-base text-light-foreground/70 dark:text-dark-foreground/70 leading-relaxed max-w-4xl mx-auto">
+          <p className="font-sans text-2xl text-light-foreground/70 dark:text-dark-foreground/70 leading-relaxed max-w-4xl mx-auto">
             From discovery to connection, we've designed every step to help you find and create 
             experiences that matter. Here's how Eventide brings people together.
           </p>
@@ -109,13 +109,13 @@ const HowItWorksPage: React.FC = () => {
       <section className="py-32">
         <div className="max-w-8xl mx-auto px-8 sm:px-12 lg:px-16">
           <div className="text-center mb-20">
-            <h2 className="font-syne font-bold text-3xl text-light-foreground dark:text-dark-foreground mb-6">
+            <h2 className="font-display font-bold text-5xl text-light-foreground dark:text-dark-foreground mb-8">
               For Event{' '}
               <span className="text-light-secondary dark:text-dark-secondary">
                 Seekers
               </span>
             </h2>
-            <p className="font-syne text-base text-light-foreground/70 dark:text-dark-foreground/70 max-w-4xl mx-auto leading-relaxed">
+            <p className="font-sans text-2xl text-light-foreground/70 dark:text-dark-foreground/70 max-w-4xl mx-auto leading-relaxed">
               Four simple steps to transform how you discover and experience events.
             </p>
           </div>

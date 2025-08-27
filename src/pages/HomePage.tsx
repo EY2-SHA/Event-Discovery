@@ -1,7 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Navigation from '../components/Navigation.tsx';
-
 import { ArrowRight, Calendar, Users, Sparkles, TrendingUp, Heart } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
@@ -88,18 +86,18 @@ const HomePage: React.FC = () => {
 
   return (
     <div className="pt-16">
-   
      {/* Hero Section */}
-<section className="relative min-h-screen flex items-center justify-center overflow-hidden" id="hero-section">
+<section className="relative min-h-screen flex items-center justify-center overflow-hidden">
   {/* Background Image */}
   <div className="absolute inset-0">
-        
     <img
       src="https://images.pexels.com/photos/3585047/pexels-photo-3585047.jpeg"
       alt="Hero background"
-      className="w-full h-full object-cover opacity-70 dark:opacity-50"
+      // Removed dark:opacity-50 to give full control to the gradient overlay
+      className="w-full h-full object-cover"
     />
-    <div className="absolute inset-0 bg-gradient-to-b from-light-background/20 via-light-background/40 to-light-background dark:from-dark-background/60 dark:via-dark-background/70 dark:to-dark-background"></div>
+    {/* Modified gradient for better visibility and a seamless transition to the next section */}
+    <div className="absolute inset-0 bg-gradient-to-b from-light-background/10 via-light-background/30 to-[#f5e9e9] dark:from-dark-background/70 dark:via-dark-background/80 dark:to-[#2A2A2A]"></div>
   </div>
 
   {/* Subtle Floating Elements */}
@@ -149,129 +147,6 @@ const HomePage: React.FC = () => {
     </div>
   </div>
 </section>
-
-      {/* Features Section */}
-      <section className="py-20 relative">
-        <div className="max-w-8xl mx-auto px-8 sm:px-12 lg:px-16">
-          <div className="text-center mb-16">
-            <h2 className="font-syne font-bold text-3xl text-light-foreground dark:text-dark-foreground mb-4">
-              Why Choose{' '}
-              <span className="text-light-secondary dark:text-dark-secondary">
-                Eventide?
-              </span>
-            </h2>
-            <p className="font-syne text-light-foreground/70 dark:text-dark-foreground/70 max-w-2xl mx-auto">
-              Discover what makes our platform the perfect place for meaningful connections.
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center p-6 bg-light-card dark:bg-dark-card border border-light-border dark:border-dark-border rounded-handcrafted shadow-handcrafted dark:shadow-handcrafted-dark">
-              <div className="w-12 h-12 bg-light-secondary dark:bg-dark-secondary rounded-handcrafted flex items-center justify-center mx-auto mb-4 shadow-handcrafted dark:shadow-handcrafted-dark">
-                <Sparkles className="w-6 h-6 text-white" />
-              </div>
-              <h3 className="font-syne font-semibold text-lg text-light-foreground dark:text-dark-foreground mb-2">
-                Curated Experiences
-              </h3>
-              <p className="font-syne text-sm text-light-foreground/70 dark:text-dark-foreground/70">
-                Every event is carefully selected to ensure quality and meaningful engagement.
-              </p>
-            </div>
-            
-            <div className="text-center p-6 bg-light-card dark:bg-dark-card border border-light-border dark:border-dark-border rounded-handcrafted shadow-handcrafted dark:shadow-handcrafted-dark">
-              <div className="w-12 h-12 bg-light-secondary dark:bg-dark-secondary rounded-handcrafted flex items-center justify-center mx-auto mb-4 shadow-handcrafted dark:shadow-handcrafted-dark">
-                <Users className="w-6 h-6 text-white" />
-              </div>
-              <h3 className="font-syne font-semibold text-lg text-light-foreground dark:text-dark-foreground mb-2">
-                Community Driven
-              </h3>
-              <p className="font-syne text-sm text-light-foreground/70 dark:text-dark-foreground/70">
-                Join a community that values authentic connections and personal growth.
-              </p>
-            </div>
-            
-            <div className="text-center p-6 bg-light-card dark:bg-dark-card border border-light-border dark:border-dark-border rounded-handcrafted shadow-handcrafted dark:shadow-handcrafted-dark">
-              <div className="w-12 h-12 bg-light-secondary dark:bg-dark-secondary rounded-handcrafted flex items-center justify-center mx-auto mb-4 shadow-handcrafted dark:shadow-handcrafted-dark">
-                <Heart className="w-6 h-6 text-white" />
-              </div>
-              <h3 className="font-syne font-semibold text-lg text-light-foreground dark:text-dark-foreground mb-2">
-                Meaningful Connections
-              </h3>
-              <p className="font-syne text-sm text-light-foreground/70 dark:text-dark-foreground/70">
-                Build lasting relationships that extend beyond just the event itself.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials Section */}
-      <section className="py-20 bg-light-muted/30 dark:bg-dark-muted/30">
-        <div className="max-w-8xl mx-auto px-8 sm:px-12 lg:px-16">
-          <div className="text-center mb-16">
-            <h2 className="font-syne font-bold text-3xl text-light-foreground dark:text-dark-foreground mb-4">
-              What Our{' '}
-              <span className="text-light-secondary dark:text-dark-secondary">
-                Community Says
-              </span>
-            </h2>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="bg-light-card dark:bg-dark-card border border-light-border dark:border-dark-border rounded-handcrafted p-6 shadow-handcrafted dark:shadow-handcrafted-dark">
-              <div className="flex items-center mb-4">
-                <img
-                  src="https://images.pexels.com/photos/3763188/pexels-photo-3763188.jpeg"
-                  alt="Sarah"
-                  className="w-10 h-10 rounded-full object-cover mr-3"
-                />
-                <div>
-                  <h4 className="font-syne font-semibold text-light-foreground dark:text-dark-foreground">Sarah Chen</h4>
-                  <p className="font-syne text-xs text-light-foreground/70 dark:text-dark-foreground/70">Event Enthusiast</p>
-                </div>
-              </div>
-              <p className="font-syne text-sm text-light-foreground/70 dark:text-dark-foreground/70">
-                "Eventide has transformed how I discover meaningful experiences. Every event I've attended has been thoughtfully curated."
-              </p>
-            </div>
-            
-            <div className="bg-light-card dark:bg-dark-card border border-light-border dark:border-dark-border rounded-handcrafted p-6 shadow-handcrafted dark:shadow-handcrafted-dark">
-              <div className="flex items-center mb-4">
-                <img
-                  src="https://images.pexels.com/photos/2381069/pexels-photo-2381069.jpeg"
-                  alt="Marcus"
-                  className="w-10 h-10 rounded-full object-cover mr-3"
-                />
-                <div>
-                  <h4 className="font-syne font-semibold text-light-foreground dark:text-dark-foreground">Marcus Johnson</h4>
-                  <p className="font-syne text-xs text-light-foreground/70 dark:text-dark-foreground/70">Community Builder</p>
-                </div>
-              </div>
-              <p className="font-syne text-sm text-light-foreground/70 dark:text-dark-foreground/70">
-                "The connections I've made through Eventide events have enriched my life in ways I never expected."
-              </p>
-            </div>
-            
-            <div className="bg-light-card dark:bg-dark-card border border-light-border dark:border-dark-border rounded-handcrafted p-6 shadow-handcrafted dark:shadow-handcrafted-dark">
-              <div className="flex items-center mb-4">
-                <img
-                  src="https://images.pexels.com/photos/3763152/pexels-photo-3763152.jpeg"
-                  alt="Elena"
-                  className="w-10 h-10 rounded-full object-cover mr-3"
-                />
-                <div>
-                  <h4 className="font-syne font-semibold text-light-foreground dark:text-dark-foreground">Elena Rodriguez</h4>
-                  <p className="font-syne text-xs text-light-foreground/70 dark:text-dark-foreground/70">Event Organizer</p>
-                </div>
-              </div>
-              <p className="font-syne text-sm text-light-foreground/70 dark:text-dark-foreground/70">
-                "As an organizer, Eventide provides the perfect platform to reach people who truly value authentic experiences."
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Stats Section */}
       <section className="py-20 relative" ref={statsRef}>
         <div className="max-w-8xl mx-auto px-8 sm:px-12 lg:px-16">
@@ -331,18 +206,18 @@ const HomePage: React.FC = () => {
                 to={`/event/${event.id}`}
                 className="group block"
                 style={{
-                  transform: `rotate(${(event.id % 3 - 1) * 0.3}deg)`,
+                  transform: `rotate(${(event.id % 3 - 1) * 0.5}deg)`,
                 }}
               >
-                <div className="bg-light-card dark:bg-dark-card overflow-hidden border-2 border-light-border dark:border-dark-border hover:border-light-secondary dark:hover:border-dark-secondary transition-all duration-300 shadow-brutal dark:shadow-brutal-dark">
+                <div className="bg-light-card dark:bg-dark-card overflow-hidden border-2 border-light-border dark:border-dark-border hover:border-light-secondary dark:hover:border-dark-secondary transition-all duration-300 shadow-brutal hover:shadow-brutal-lg transform hover:-translate-y-2 hover:animate-sketch">
                   <div className="aspect-video relative overflow-hidden">
                     <img
                       src={event.image}
                       alt={event.title}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                     />
                     <div className="absolute top-4 left-4">
-                      <span className="px-3 py-1 bg-light-secondary dark:bg-dark-secondary text-white text-xs font-syne font-medium shadow-handcrafted rounded-sketch">
+                      <span className="px-3 py-1 bg-light-secondary dark:bg-dark-secondary text-white text-xs font-sans font-medium shadow-handcrafted rounded-sketch">
                         {event.category}
                       </span>
                     </div>

@@ -79,13 +79,9 @@ export default {
       },
       boxShadow: {
         'handcrafted': '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
-        'handcrafted-dark': '0 4px 6px -1px rgba(255, 255, 255, 0.05), 0 2px 4px -1px rgba(255, 255, 255, 0.03)',
         'sketch': '2px 2px 0px rgba(0, 0, 0, 0.1)',
-        'sketch-dark': '2px 2px 0px rgba(255, 255, 255, 0.1)',
         'brutal': '4px 4px 0px rgba(0, 0, 0, 0.1)',
-        'brutal-dark': '4px 4px 0px rgba(255, 255, 255, 0.1)',
         'brutal-lg': '8px 8px 0px rgba(0, 0, 0, 0.15)',
-        'brutal-lg-dark': '8px 8px 0px rgba(255, 255, 255, 0.15)',
         'soft': '0 2px 15px -3px rgba(0, 0, 0, 0.07), 0 10px 20px -2px rgba(0, 0, 0, 0.04)',
       },
       backgroundImage: {
