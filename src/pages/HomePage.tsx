@@ -85,7 +85,7 @@ const HomePage: React.FC = () => {
   ];
 
   return (
-    <div className="pt-26">
+    <div className="pt-16">
      {/* Hero Section */}
 <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
   {/* Background Image */}
