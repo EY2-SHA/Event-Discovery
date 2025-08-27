@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Navigation from './Navigation';
+
 import { ArrowRight, Calendar, Users, Sparkles, TrendingUp, Heart } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
@@ -86,6 +88,7 @@ const HomePage: React.FC = () => {
 
   return (
     <div className="pt-16">
+           <Navigation />
      {/* Hero Section */}
 <section className="relative min-h-screen flex items-center justify-center overflow-hidden" id="hero-section">
   {/* Background Image */}
